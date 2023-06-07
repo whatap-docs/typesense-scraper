@@ -37,4 +37,4 @@ runs:
           -e TYPESENSE_PORT="${{ inputs.port }}" \
           -e TYPESENSE_PROTOCOL="${{ inputs.protocol }}" \
           -e CONFIG="$(cat ${{ inputs.config }} | jq -r tostring)" \
-          typesense/docsearch-scraper
+          whatap-docs/docsearch-scraper
