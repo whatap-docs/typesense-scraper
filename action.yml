@@ -36,5 +36,6 @@ runs:
           -e TYPESENSE_HOST="${{ inputs.host }}" \
           -e TYPESENSE_PORT="${{ inputs.port }}" \
           -e TYPESENSE_PROTOCOL="${{ inputs.protocol }}" \
+          -e TYPESENSE_COLLECTION_LOCALE="ja" \
           -e CONFIG="$(cat ${{ inputs.config }} | jq -r tostring)" \
           typesense/docsearch-scraper
