@@ -24,6 +24,10 @@ inputs:
         description: The path to your DocSearch config JSON file, relative to the root of your repository. Defaults to "docsearch.config.json".
         required: false
         default: docsearch.config.json
+    collection-locale:
+        description: collection locale
+        required: false
+        default: en 
 
 runs:
   using: composite
@@ -36,6 +40,6 @@ runs:
           -e TYPESENSE_HOST="${{ inputs.host }}" \
           -e TYPESENSE_PORT="${{ inputs.port }}" \
           -e TYPESENSE_PROTOCOL="${{ inputs.protocol }}" \
-          -e TYPESENSE_COLLECTION_LOCALE="ja" \
           -e CONFIG="$(cat ${{ inputs.config }} | jq -r tostring)" \
+          -e TYPESENSE_COLLECTION_LOCALE="${{ inputs.collection-locale }}" \
           typesense/docsearch-scraper
